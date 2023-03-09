@@ -1,7 +1,7 @@
 
 from django.http import HttpResponse
 import datetime
-
+from django.template import *
 def saludo(request):
 
     return HttpResponse("Bienvenidos a la Pagina Principal")
