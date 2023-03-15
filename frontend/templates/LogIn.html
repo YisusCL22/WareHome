@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link  type='text/css' href="{% static '/frontend/Login.css'%}" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <a href="{% url 'Home' %}" class="logo"></a>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'Home' %}" class="navi">Inicio</a></li>
+                    <li><a href="" class="navi">Empresa</a></li>
+                    <li><a href="" class="navi">Servicios</a></li>
+                    <li><a href="" class="navi">Contacto</a></li>
+            </nav>
+        </header>
+        <div class="Central">
+            <div style="width: 100%;">
+            <section class="login">
+                <a href="Inicio1.html" class="logo" style="position: absolute; top: 70px; left: 55px; width: 236px; height: 79px;"></a>
+                <h1 style="position: relative;top: 190px;left: 100px;">Iniciar Sesión</h1>
+                <p  style="position: relative;top: 205px;left: 51px;">Ingrese y comience en WareHomes</p>
+                <input type="text" style="position: relative;top: 220px;left: 51px;" name="Usuario" value="" placeholder=" Correo Electrónico"><br>
+                <input type="password" style="position: relative;top: 230px;left: 51px;" name="Contraseña" value="" placeholder=" Contraseña"><br>
+                <a href="" class="link" style="position: relative;top: 235px;left: 80px;"> ¿Olvidaste la contraseña?</a>
+                <button type="submit" style="position: relative;top: 235px;left: 53px;width: 235px;height: 41px;">Ingresar</button>
+            </section>
+            </div>
+            <section style="position: relative; top: 120px; left: 540px;">
+                <div class="footer">
+                    <p style="color: #FFFFFF;">¿Aún no tienes cuenta?</p>
+                    <a href="" style="color: #00E1BB; font-weight: 700; border-color: #070612;">Crear Cuenta</a>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>
