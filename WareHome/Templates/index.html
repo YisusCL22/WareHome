@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Inicio - WareHomes</title>
+        <!-- CSS de Bootstrap -->
+        {% load static %}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <style>
+            *{
+                margin: 0;
+                padding: 0; 
+            }
+            header{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 80px;
+                justify-content: space-around;
+                transition: 0.7s;
+                padding: 30px 20px;
+                background: rgb(0, 0, 0);
+                z-index: 10;
+            }
+            header.abajo{
+                background: rgb(0, 0, 0);
+            }
+            nav{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            header ul{
+                left: 100px;
+                position: relative;
+                top: 0px;
+                justify-content: center;
+                display: flex; 
+                align-items: center;
+                margin-left: 550px;
+            }
+            header ul li{
+                list-style: none;
+                display: inline-block;
+            }
+            .navi{
+                position: relative;
+                margin: 0px 15px;
+                text-decoration: none;
+                font-family: 'trebuchet ms';
+                font-style: sans-serif;
+                font-weight: 700;
+                font-size: 19px;
+                line-height: 35px;
+                align-items: center;
+                text-align: center;
+                color: #FFFFFF;
+                transition: 0.7s;
+            }
+            .logo{
+                position: absolute;
+                width: 132px;
+                height: 58px;
+                left: 91px;
+                top: 10px;
+                font-family: 'trebuchet ms';
+                font-style: sans-serif;
+                font-weight: 900;
+                font-size: 50px;
+                line-height: 59px;
+                color: #FFFFFF;
+            }
+            .s1{
+                position: relative;
+                width: 100%;
+                height: 100vh;
+                left: 0px;
+                top: 0px;
+                background-image: url("{% static 'imagenes/fondo1.jpg' %}");
+                background-size: cover;
+                background-position: center center;
+                box-shadow: inset 0px 1000px 50px rgba(0, 0, 0, 0.5);
+            }
+            .s2{
+                position: relative;
+                width: 100%;
+                height: 1058px;
+                left: 0px;
+                top: 0px;
+                background: #070612;
+                box-shadow: 0px -10px 10px rgb(0, 0, 0);
+            }
+            .s3{
+               position: relative;
+                width: 100%;
+                height: 100vh;
+                left: 0px;
+                top: 0px;
+                background-image: url("{% static 'imagenes/fondo2.jpg' %}");
+                background-size: cover;
+                background-position: center center;
+                box-shadow: inset 0px 1000px 50px rgba(0, 0, 0, 0.5), 0px -10px 10px rgba(0, 0, 0, 0.25);
+            }
+            .btn-custom{
+                position: relative; 
+                width: 180px;
+                height: 40px;
+                background: #000000;
+                border-radius: 19px;
+
+                display: inline-block;
+                font-family: 'trebuchet ms';
+                font-style: sans-serif;
+                font-weight: 700;
+                font-size: 19px;
+                line-height: 30px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                color: #FFFFFF;
+                filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+            }
+            .btn-custom:hover{
+                background: #013129;
+                color: #FFFFFF;
+            }
+            .btn-custom:active{
+                background: #FFFFFF;
+                color: #013129;
+                box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+            }
+            .titulo{
+                position: relative;
+                width: 701px;
+                height: 150px;
+                left: 80px;
+                top: 170px;
+                
+                font-family: 'trebuchet ms';
+                font-style: sans-serif;
+                font-weight: 700;
+                font-size: 64px;
+                line-height: 75px;
+                display: flex;
+                align-items: center;
+                color: #FFFFFF;
+            }
+            .subtitulo{
+                position: absolute;
+                width: 701px;
+                height: 47px;
+                
+                font-family: 'trebuchet ms';
+                font-style: sans-serif;
+                font-weight: 700;
+                font-size: 40px;
+                line-height: 47px;
+                
+                display: flex;
+                align-items: center;
+                text-align: center;
+                color: #FFFFFF;
+            }
+            .descripcion{
+                position: absolute;
+                width: 389px;
+                height: 92px;
+                
+                font-family: 'trebuchet ms';
+                font-style: sans-serif;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 23px;
+                display: flex;
+                align-items: center;
+                color: #FFFFFF;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <img src="{%static 'imagenes/logo.PNG'%}" class="logo"></img>
+            <nav>
+                <ul>
+                    <li><a href="" class="navi">Inicio</a></li>
+                    <li><a href="" class="navi">Empresa</a></li>
+                    <li><a href="" class="navi">Servicios</a></li>
+                    <li><a href="" class="navi">Contacto</a></li>
+                    <li><a href="iniciarSesion.html" class="btn btn-custom" style="width: 150px;">Iniciar Sesión</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="s1">
+            <h1 class="titulo">Servicios de Bodegaje<br> y Almacenaje</h1>
+            <p class="descripcion" style="top: 350px; left: 91px;">Texto, texto, texto, texto, texto, texto,texto, texto, texto, texto, texto, texto
+texto, texto, texto, texto, texto, texto, texto, texto, texto, texto, texto, texto</p>
+            <a href="" class="btn btn-custom" style="left:80px;bottom:-320px;width: 100px;">Registrarse</a>
+        </section>
+        <section class="s2">
+            <h2 class="subtitulo" style="top: 85px; left: 540px;">¿Quienes Somos?</h2>
+            <p class="descripcion" style="top: 167px; left: 200px; width: 75%;">Texto, texto, texto, texto, texto, texto,texto, texto, texto, texto, texto, texto
+texto, texto, texto, texto, texto, texto, texto, texto, texto, texto, texto, texto</p>
+            <a href="" class="btn btn-custom" style="left: 600px;top: 265px;width: 190px;">Descubre Más</a>
+        </section>
+        <section class="s3"></section>
+        <script>
+            window.addEventListener("scroll", function(){
+                var header = document.querySelector("header");
+                header.classList.toggle("abajo", window.scrollY>600);
+            })
+        </script>
+        
+    </body>
+</html>

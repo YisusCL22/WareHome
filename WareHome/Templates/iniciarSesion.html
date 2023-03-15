@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <style>
+              *{
+                margin: 0;
+                padding: 0; 
+                
+                font-family: 'trebuchet ms';
+                font-style: sans-serif;
+                color: #FFFFFF;
+              }
+              header{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 20px;
+                justify-content: space-around;
+                transition: 0.7s;
+                padding: 30px 20px;
+                background: rgb(0, 0, 0);
+                z-index: 10;
+            }
+            header.abajo{
+                background: rgb(0, 77, 64);
+            }
+            nav{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            header ul{
+                left: 100px;
+                position: relative;
+                top: 0px;
+                justify-content: center;
+                display: flex; 
+                align-items: center;
+                margin-left: 550px;
+            }
+            header ul li{
+                list-style: none;
+                display: inline-block;
+            }
+            .navi{
+                position: relative;
+                margin: 0px 15px;
+                text-decoration: none;
+                font-family: 'trebuchet ms';
+                font-style: sans-serif;
+                font-weight: 700;
+                font-size: 19px;
+                line-height: 35px;
+                align-items: center;
+                text-align: center;
+                color: #FFFFFF;
+                transition: 0.7s;
+            }
+            .logo{
+                position: absolute;
+                width: 132px;
+                height: 58px;
+                left: 91px;
+                top: 10px;
+                font-family: 'trebuchet ms';
+                font-style: sans-serif;
+                font-weight: 900;
+                font-size: 50px;
+                line-height: 59px;
+                color: #FFFFFF;
+            }
+              .Central{
+                position: relative;
+                width: 100%;
+                height: 100vh;
+                left: 0px;
+                top: 0px;
+                background-image: url("{% static 'imagenes/fondo2.jpg' %}");
+                background-size: cover;
+                background-position: center center;
+                box-shadow: inset 0px 1000px 50px rgba(0, 0, 0, 0.5);
+            }
+            .login{
+                position: relative;
+                width: 341px;
+                height: 470px;
+                left: 512px;
+                top: 100px;
+                
+                background: #070612;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                border-radius: 10px;
+            }
+            input{
+                position: relative;
+                width: 235px;
+                height: 41px;
+                padding-left: 12px;
+                
+                background: #131125;
+                box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+                border-radius: 20px;
+                border: none;
+
+                font-family: 'trebuchet ms';
+                font-style: sans-serif;
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 21px;
+                color: #168673;
+            }
+            input::placeholder{
+                font-family: 'trebuchet ms';
+                font-style: sans-serif;
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 21px;
+                display: flex;
+                align-items: center;
+                color: #FFFFFF;
+            }
+            input:active{
+                border: none;
+                outline: none;
+            }
+            input:focus{
+                border: none;
+                outline: none; 
+            }
+            button{
+                position: relative;
+                background: #004D40;
+                border-radius: 20px;
+                outline: none;
+                border: none;
+                font-size: 20px;
+            }
+            button:hover{
+                background: #013129;
+                color: #FFFFFF;
+            }
+            button:active{
+                background: #FFFFFF;
+                color: #013129;
+                box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+            }
+            .link{
+                position: absolute;
+                width: 201px;
+                height: 42px;
+                
+                font-family: 'trebuchet ms';
+                font-style: sans-serif;
+                font-weight: 700;
+                font-size: 15px;
+                line-height: 18px;
+                display: flex;
+                align-items: center;
+                text-align: center;
+                color: #00E1BB;
+             }
+            .footer p, .footer a {
+                display: inline-block;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <img href="index.html" src="{%static 'imagenes/logo.PNG'%}" class="logo"></img>
+            <nav>
+                <ul>
+                    <li><a href="Inicio1.html" class="navi">Inicio</a></li>
+                    <li><a href="" class="navi">Empresa</a></li>
+                    <li><a href="" class="navi">Servicios</a></li>
+                    <li><a href="" class="navi">Contacto</a></li>
+            </nav>
+        </header>
+        <div class="Central">
+            <div style="width: 100%;">
+            <section class="login">
+                <h1 style="position: relative;top: 190px;left: 100px;">Iniciar Sesión</h1>
+                <p  style="position: relative;top: 205px;left: 51px;">Ingrese y comience en WareHomes</p>
+                <input type="text" style="position: relative;top: 220px;left: 51px;" name="Usuario" value="" placeholder=" Correo Electrónico"><br>
+                <input type="password" style="position: relative;top: 230px;left: 51px;" name="Contraseña" value="" placeholder=" Contraseña"><br>
+                <a href="" class="link" style="position: relative;top: 235px;left: 80px;"> ¿Olvidaste la contraseña?</a>
+                <button type="submit" style="position: relative;top: 235px;left: 53px;width: 235px;height: 41px;">Ingresar</button>
+            </section>
+            </div>
+            <section style="position: relative; top: 120px; left: 540px;">
+                <div class="footer">
+                    <p style="color: #FFFFFF;">¿Aún no tienes cuenta?</p>
+                    <a href="crearCuenta.html" style="color: #00E1BB; font-weight: 700; border-color: #070612;">Crear Cuenta</a>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>
