@@ -39,8 +39,8 @@ header ul li{
     position: relative;
     margin: 0px 15px;
     text-decoration: none;
-    font-family: 'Roboto';
-    font-style: normal;
+    font-family: 'trebuchet ms';
+    font-style: sans-serif;
     font-weight: 700;
     font-size: 15px;
     line-height: 29px;
@@ -97,8 +97,8 @@ header ul li{
     border-radius: 15px;
 
     display: inline-block;
-    font-family: 'Roboto';
-    font-style: normal;
+    font-family: 'trebuchet ms';
+    font-style: sans-serif;
     font-weight: 700;
     font-size: 15px;
     line-height: 29px;
@@ -124,8 +124,8 @@ header ul li{
     left: 80px;
     top: 170px;
     
-    font-family: 'Roboto';
-    font-style: normal;
+    font-family: 'trebuchet ms';
+    font-style: sans-serif;
     font-weight: 700;
     font-size: 64px;
     line-height: 75px;
@@ -138,8 +138,8 @@ header ul li{
     width: 701px;
     height: 47px;
     
-    font-family: 'Roboto';
-    font-style: normal;
+    font-family: 'trebuchet ms';
+    font-style: sans-serif;
     font-weight: 700;
     font-size: 40px;
     line-height: 47px;
@@ -154,8 +154,8 @@ header ul li{
     width: 389px;
     height: 92px;
     
-    font-family: 'Roboto';
-    font-style: normal;
+    font-family: 'trebuchet ms';
+    font-style: sans-serif;
     font-weight: 500;
     font-size: 20px;
     line-height: 23px;

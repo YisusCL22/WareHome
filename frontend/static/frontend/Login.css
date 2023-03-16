@@ -2,8 +2,8 @@
     margin: 0;
     padding: 0; 
     
-    font-family: 'Roboto';
-    font-style: normal;
+    font-family: 'trebuchet ms';
+    font-style: sans-serif;
     color: #FFFFFF;
   }
   header{
@@ -43,8 +43,8 @@ header ul li{
     position: relative;
     margin: 0px 15px;
     text-decoration: none;
-    font-family: 'Roboto';
-    font-style: normal;
+    font-family: 'trebuchet ms';
+    font-style: sans-serif;
     font-weight: 700;
     font-size: 15px;
     line-height: 29px;
@@ -95,16 +95,16 @@ input{
     border-radius: 20px;
     border: none;
 
-    font-family: 'Roboto';
-    font-style: normal;
+    font-family: 'trebuchet ms';
+    font-style: sans-serif;
     font-weight: 600;
     font-size: 18px;
     line-height: 21px;
     color: #168673;
 }
 input::placeholder{
-    font-family: 'Roboto';
-    font-style: normal;
+    font-family: 'trebuchet ms';
+    font-style: sans-serif;
     font-weight: 600;
     font-size: 18px;
     line-height: 21px;
@@ -142,8 +142,8 @@ button:active{
     width: 201px;
     height: 42px;
     
-    font-family: 'Roboto';
-    font-style: normal;
+    font-family: 'trebuchet ms';
+    font-style: sans-serif;
     font-weight: 700;
     font-size: 15px;
     line-height: 18px;
