@@ -9,6 +9,6 @@ def home(request):
     return HttpResponse(template.render(context, request))
 
 def login(request):
-    template = loader.get_template('LogIn.html')
+    template = loader.get_template('Login.html')
     context = {}
     return HttpResponse(template.render(context, request))

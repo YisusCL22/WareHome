@@ -1,13 +1,30 @@
-# Especialidad-I
-Proyecto de Especialidad I
+### Proyecto: Especialidad I - Warehome 
 
-conda create -n nombre_entorno python==3.7
-sudo -u postgres psql
-pip3 install django==2.0.2
-pip3 install Pillow
-pip3 Install pylint
-pip3 install pylint-django
-pip3 install django-bower
-sudo apt-get install libpq-dev python3-dev
+------------
+#####Instalador Bash(Linux):
+`$ sh setup.sh`
 
-pip3 install psycopg2==2.8.5
+`$ ./setup.sh`
+
+
+##### Pasos a seguir:
+- Clonar el repositorio en su PC.
+`git clone https://github.com/YisusCL22/Especialidad-I.git`
+- Creación del Entorno Virtual > Miniconda.
+`conda create -n Warehome python==3.7`
+Activación:
+`conda activate Warehome`
+- Instalación de requerimientos.
+`pip3 install -r requirements.txt`
+- Comprobar Instalación.
+`pip list`
+
+------------
+# Screenshots
+####Logo
+# ![Logo](https://github.com/YisusCL22/Especialidad-I/blob/ed6fadb39576e64d4744398cb16ef81987406987/frontend/static/frontend/Images/Logo.png)
+####Home
+# ![Home](https://github.com/YisusCL22/Especialidad-I/blob/ed6fadb39576e64d4744398cb16ef81987406987/screenshots/Sc_1.png)
+####Login
+# ![Home](https://github.com/YisusCL22/Especialidad-I/blob/ed6fadb39576e64d4744398cb16ef81987406987/screenshots/Sc_2.png)
+
