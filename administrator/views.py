@@ -232,3 +232,46 @@ def user_delete(request,user_id):
     else:
         messages.add_message(request, messages.INFO, 'Hubo un error al eliminar el Usuario '+user_data.first_name +' '+user_data.last_name)
         return redirect('list_user_block',profile_data.group_id)        
+
+def ejemplo_query_set(request):
+    #los query set que estan acontinuación retornan elementos iterables
+    #para obtener todos los datos de un modelo
+    user_array =  User.objects.all()
+    #para obtener todos los datos de un modelo ordenados por algún criterio
+    user_array =  User.objects.all().order_by('username') #Ascendente
+    user_array =  User.objects.all().order_by('-username') #Descendente
+    #para obtener todos los datos de un modelo filtrado por algún criterio
+    #para obtener todos los datos de un modelo excluyendo en base a algún criterio
+    user_array =  User.objects.all().exclude(username='1234567')
+    #si el criterio no existe retornará una lista vacia
+    user_array =  User.objects.filter(username='1234567')  
+    user_array =  User.objects.filter(username='1234567').order_by('username')#Ascendente
+    user_array =  User.objects.filter(username='1234567').order_by('-username')#Descendente
+    #para obtener todos los datos de un modelo filtrado por mas de un criterio
+    user_array =  User.objects.filter(username='1234567').filter(is_active='t')  
+    user_array =  User.objects.filter(username='1234567').filter(is_active='t').order_by('username')#Ascendente
+    user_array =  User.objects.filter(username='1234567').filter(is_active='t').order_by('-username')#Descendente
+    #para obtener todos los datos de un modelo filtrado por un criterio u otro
+    #para usar el o debe importarlo al inicio del archivo from django.db.models Q
+    user_array =  User.objects.filter(Q(username='1234567')|Q(is_active='t'))  
+    user_array =  User.objects.filter(Q(username='1234567')|Q(is_active='t')).order_by('username')#Ascendente
+    user_array =  User.objects.filter(Q(username='1234567')|Q(is_active='t')).order_by('-username')#Descendente
+
+    #para obtener un solo registro
+    '''
+    si bien se suele usar con el id (pk), se pueden usar con cualquier otro criterio, de usarlo de esta forma debe 
+    estar seguro de que le retornará un solo registro, ya que caso contrario le arrojará un error
+    '''
+    user_data = User.objects.get(pk=1)
+    #si desea usar con otro criterio distinto a comparar con pk 
+    user_data = User.objects.filter(is_active='t').first()#retorna el primer elemento de la lista
+    #para actualizar registros
+    User.objects.filter(pk=1).update(is_active='f')#actualiza el registro asociado al id
+    User.objects.filter(is_active='f').update(is_active='t')#actualiza todos los registros que cumplen con el criterio
+    #para contar registros
+    user_data_count = User.objects.filter(pk=1).count()
+    #la creación de registros la abordaremos más adelante
+
+
+    print(user_data_count)
+    return redirect('login')
