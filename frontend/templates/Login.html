@@ -36,13 +36,25 @@
                         <div class="col-md-8 col-lg-6 col-xl-5 col-xxl-4 text-start d-inline-flex d-xxl-flex flex-column justify-content-center align-items-center align-content-center" style="padding: 0px;position: static;">
                             <div class="card mb-3" style="border-radius: 10px;width: 341px;margin-left: 0px;border-style: none;border-color: #070612;box-shadow: 0px 10px 20px rgba(0,0,0,0.25);margin-bottom: 0px;">
                                 <div class="card-body p-sm-5" style="background: #070612;border-radius: 10px;text-align: center;height: 465px;border-style: none;border-color: #070612;"><img src="{% static '/frontend/Images/Logo.png'%}" style="padding: 0px;padding-top: 2px;margin: 0px;margin-bottom: 26px;width: 244px;padding-left: 0px;margin-top: 2px;text-align: center;margin-left: 1px;">
-                                    <form method="get" style="text-align: center;">
-                                        <h2 class="text-center mb-4" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);margin-bottom: 26px;">Iniciar Sesión</h2>
-                                        <p class="text-center" style="font-family: Roboto, sans-serif;color: rgb(255,255,255);font-weight: bold;">Más que una bodega un hogar</p>
-                                        <div class="mb-3" style="margin: 0px;"></div>
-                                        <div class="mb-3" style="margin: 0px;"><input class="form-control" type="email" id="email-2" name="email" placeholder="Correo Electrónico" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"><input class="form-control" type="password" style="background: #131125;border-style: none;border-radius: 20px;margin-top: 15px;" required="" pattern="/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&amp;])([A-Za-z\d$@$!%*?&amp;]|[^ ]){5,13}$/;" minlength="5" maxlength="13" placeholder="Contraseña"></div><a href="#" style="text-align: center;font-family: Roboto, sans-serif;font-weight: bold;color: #00E1BB;margin-bottom: 1px;padding-top: 0px;padding-right: 0px;margin-left: 0px;">¿Olvidaste la Contraseña?</a>
-                                        <div><button class="btn btn-primary d-block w-100" type="submit" style="border-style: none;border-radius: 10px;background: #004D40;font-weight: bold;margin-top: 11px;">Ingresar</button></div>
-                                    </form>
+<!--inputNames=email,password-->
+<form method="post" action="{% url 'Login' %}" style="text-align: center;">
+    {% csrf_token %}
+    <h2 class="text-center mb-4" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);margin-bottom: 26px;">Iniciar Sesión</h2>
+    <p class="text-center" style="font-family: Roboto, sans-serif;color: rgb(255,255,255);font-weight: bold;">Más que una bodega un hogar</p>
+    <div class="mb-3" style="margin: 0px;"></div>
+    <div class="mb-3" style="margin: 0px;">
+      {{ form.user }}
+      {{ form.password }}
+    </div>
+    {% if error %}
+      <p style="color: red;">Correo electrónico o contraseña inválidos</p>
+    {% endif %}
+    <a href="#" style="text-align: center;font-family: Roboto, sans-serif;font-weight: bold;color: #00E1BB;margin-bottom: 1px;padding-top: 0px;padding-right: 0px;margin-left: 0px;">¿Olvidaste la Contraseña?</a>
+    <div><button class="btn btn-primary d-block w-100" type="submit" style="border-style: none;border-radius: 10px;background: #004D40;font-weight: bold;margin-top: 11px;">Ingresar</button></div>
+  </form>
+  
+  
+
                                 </div>
                             </div>
                         </div>

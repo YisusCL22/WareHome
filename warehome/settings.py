@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'frontend',
+    'registration',
 ]
 
 MIDDLEWARE = [
@@ -76,8 +77,14 @@ WSGI_APPLICATION = 'warehome.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgresWare',
+        'USER': 'prueba',
+        'PASSWORD': 'homie245=',
+        'HOST': 'localhost',
+        'OPTIONS': {
+            'options': '-c timezone=UTC',
+        },
     }
 }
 
@@ -106,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es'
 
-TIME_ZONE = 'Chile/Continental'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -123,3 +130,6 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 STATIC_ROOT = '/frontend/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'frontend', 'static', 'frontend')
+
+LOGIN_REDIRECT_URL = 'check_profile'
+LOGOUT_REDIRECT_URL = 'login'

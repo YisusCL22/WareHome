@@ -7,3 +7,14 @@
     box-shadow: inset 0px 100vh 50px rgba(0,0,0,0.5);
     width: 100%;
 }
+.form-control{
+    border-radius: 20px;
+    border-style: none;
+    background: #131125;
+    color:#f4f4f4;
+    margin-bottom: 5px;
+}
+.form-control:focus{
+    color: #131125;
+    background-color: #ffffff;
+}
