@@ -1,0 +1,77 @@
+{% extends 'administrador_base.html' %}
+{% block contenido %}
+{% load static %}
+{% block content %}
+{% block extrahead %}
+
+{% endblock %}
+
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6" style="width: 314px;">
+                    <div class="card" style="background: #070612;">
+                        <div class="card-header">
+                            <p style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);margin-bottom: 0px;">Listados</p>
+                        </div>
+                        <div class="card-body" style="background: #0d0b1b;">
+                            <ul style="color: #ffffff;">
+                                <li>&nbsp;<a href="#" style="text-decoration: none;color: #ffffff;font-family: Roboto, sans-serif;font-weight: bold;width: 224px;">Activos</a></li>
+                                <li style="width: auto;">&nbsp;<a href="#" style="text-decoration: none;color: #ffffff;font-family: Roboto, sans-serif;font-weight: bold;width: 224px;">Bloqueados</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6" style="width: 628px;">
+                    <div class="card" style="background: #070612;">
+                        <div class="card-header">
+                            <p style="color: rgb(255,255,255);font-family: Roboto, sans-serif;font-weight: bold;margin-bottom: 0px;">Datos de Administrador</p>
+                        </div>
+                        <div class="card-body" style="background: #0d0b1b;">
+                            <form>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3"><label class="form-label" for="username" style="font-family: Roboto, sans-serif;color: rgb(255,255,255);"><strong>Usuario</strong></label><input class="form-control" type="email" id="email-2" name="email" placeholder="Correo Electrónico" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3"><label class="form-label" for="email" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>Correo Electrónico</strong></label><input class="form-control" type="email" id="email-1" name="email" placeholder="Correo Electrónico" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3"><label class="form-label" for="first_name" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>Nombres</strong></label><input class="form-control" type="email" id="email-3" name="email" placeholder="Correo Electrónico" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3"><label class="form-label" for="last_name" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>Apellidos</strong></label><input class="form-control" type="email" id="email-4" name="email" placeholder="Correo Electrónico" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="border-style: none;border-radius: 10px;background: #004D40;font-weight: bold;margin-top: 11px;">Ingresar</button></div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card" style="background: #070612;margin-top: 10px;">
+                        <div class="card-header">
+                            <p style="color: rgb(255,255,255);font-family: Roboto, sans-serif;font-weight: bold;margin-bottom: 0px;">Configuración de Contactos</p>
+                        </div>
+                        <div class="card-body" style="background: #0d0b1b;">
+                            <form>
+                                <div class="mb-3"><label class="form-label" for="address" style="color: rgb(254,255,255);font-family: Roboto, sans-serif;"><strong>Dirección</strong></label><input class="form-control" type="email" id="email-5" name="email" placeholder="Correo Electrónico" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="mb-3"><label class="form-label" for="city" style="color: rgb(255,255,255);font-family: Roboto, sans-serif;font-weight: bold;"><strong>Ciudad</strong></label><input class="form-control" type="email" id="email-6" name="email" placeholder="Correo Electrónico" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
+                                    </div>
+                                    <div class="col">
+                                        <div class="mb-3"><label class="form-label" for="country" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>País</strong></label><input class="form-control" type="email" id="email-7" name="email" placeholder="Correo Electrónico" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
+                                    </div>
+                                </div>
+                                <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="border-style: none;border-radius: 10px;background: #004D40;font-weight: bold;margin-top: 11px;">Ingresar</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% endblock %}
+    

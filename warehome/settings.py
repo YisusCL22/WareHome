@@ -30,16 +30,26 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+EXTERNAL_APPS = [
+    #'rest_framework',
+]
+
+SITES_APPS = [
     'frontend',
     'registration',
+    'administrator',
+ 
 ]
+
+INSTALLED_APPS = DJANGO_APPS + EXTERNAL_APPS + SITES_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -78,8 +88,8 @@ WSGI_APPLICATION = 'warehome.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgresWare',
-        'USER': 'prueba',
+        'NAME': 'wareHome',
+        'USER': 'homeUser',
         'PASSWORD': 'homie245=',
         'HOST': 'localhost',
         'OPTIONS': {

@@ -19,30 +19,6 @@ def home(request):
     context = {}
     return HttpResponse(template.render(context, request))
 
-
-def LoginView(request):
-    form_class = LoginForm
-    template_name = 'Login.html'
-    if request.method == 'GET':
-        form = LoginForm()
-        return render(request,'Login.html', {'form': form})
-    
-    elif request.method == 'POST':
-        form = LoginForm(request.POST)
-        success_url = reverse_lazy('check_login')
-        
-        if form.is_valid():
-            email = form.cleaned_data['email']
-            password = form.cleaned_data['password']
-            user = authenticate(request,username=email,password=password)
-            if user:
-                login(request, user)
-                messages.success(request,f'Hola {email.title()}, Hola')
-                return redirect('home')
-        
-        # form is not valid or user is not authenticated
-        messages.error(request,f'Email o Contraseña inválida')
-        return render(request,'Login.html',{'form': form})
     
 class CustomLoginView(FormView):
     form_class = LoginForm
@@ -72,8 +48,10 @@ def check_profile(request):
     except:
         messages.add_message(request, messages.INFO, 'Hubo un error con su usuario, por favor contactese con los administradores')              
         return redirect('Login')
-    if profile.group_id == 1:        
-        return HttpResponse('Usted se ha autentificado')
-        #return redirect('admin_main')
+    if profile.group_id == 1: 
+        return redirect('admin_main')
+    #elif profile.group_id == 2: 
+        #return redirect('cuenta')
     else:
-        return redirect('logout')
+        return redirect('Home')
+    
