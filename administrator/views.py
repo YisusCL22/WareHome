@@ -32,11 +32,12 @@ def admin_main(request):
 @login_required
 def admin_user(request):
     profiles = Profile.objects.get(user_id = request.user.id)
+    groups = Group.objects.all().exclude(pk=0).order_by('id')
     if profiles.group_id != 1 and profiles.group_id != 2:
         messages.add_message(request, messages.INFO, 'Intenta ingresar a una area para la que no tiene permisos')
         return redirect('check_group_main')
     template_name = 'administrator/adminUserl.html'
-    return render(request,template_name,{'profiles':profiles})
+    return render(request,template_name,{'groups':groups,'profiles':profiles})
 
 #Flujo usuarios
 @login_required
@@ -87,7 +88,7 @@ def new_user(request):
         else:
             messages.add_message(request, messages.INFO, 'El rut que esta tratando de ingresar, ya existe en nuestros registros')                         
     groups = Group.objects.all().exclude(pk=0).order_by('id')
-    template_name = 'administrator/new_user.html'
+    template_name = 'administrator/newUser.html'
     return render(request,template_name,{'groups':groups})
 
 @login_required

@@ -1,68 +1,70 @@
+{% extends 'administrador_base.html' %}
+{% block title %}Admin-Usuarios Activos{% endblock %}
+{% block email%}
+<li class="nav-item"><a class="nav-link active" href="#" style="color: rgba(255,255,255,0.9);font-family: Roboto, sans-serif;font-weight: bold;">{{request.user.email}}</a></li>
+{%endblock%}
 
+
+{% block contenido %}
 {% load static %}
 
-{% block content %}
-{% block extrahead %}
 
-{% endblock %}
     <style>.errorlist{color:red;}
 
     </style>
-    <main role="main">
-        <div class="container col-12">
-            <div class="col-12 border">
-                <table id="service" class="table mt-2 table-hover table-sm table-bordered">      
-                    <thead class="table-danger">
-                        <tr>
-                        <tr>
-                            {% if profiles.group_id == 1 %}
-                                <th colspan="5"><h3>Listado De Usuarios {{group.name}} Activos</h3></th>
-                            {% endif %}
-                            {% if profiles.group_id == 2 %}
-                                <th colspan="4"><h3>Listado De Usuarios {{group.name}} Activos</h3></th>
-                            {% endif %}
-                            <th colspan="1">
-                                <div class="row">
-                                    <div class="col-12 col-sm-12">
-                                        <a href="{% url 'list_main' group.id %}" class="btn btn-danger form-control">Volver</a>
-                                   </div>
-                                </div>
-                            </th>
-                        </tr>
-                        <tr class="text-center">
-                            <th width="300" scope="col">Nombre Usuario</th>
-                            <th width="450" scope="col">Nombre Completo</th>
-                            <th width="300" scope="col">Correo</th>
-                            {% if profiles.group_id == 1 %}
-                                <th width="250" scope="col">Funciones</th>
-                            {% endif %}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for s in user_list %}
+    <div class="container">
+        <div class="card" style="background: #070612;">
+            <div class="card-header">
+                {% if profiles.group_id == 1 %}
+                <p style="color: rgb(255,255,255);font-family: Roboto, sans-serif;font-weight: bold;margin-bottom: 0px;font-size: 35px;">Listado De Usuarios {{group.name}} Activos</p>
+                {% endif %}
+                {% if profiles.group_id == 2 %}
+                <p style="color: rgb(255,255,255);font-family: Roboto, sans-serif;font-weight: bold;margin-bottom: 0px;font-size: 35px;">Listado De Usuarios {{group.name}} Activos</p>
+                {% endif %}
+            </div>
+            <div class="card-body" style="background: #0d0b1b;">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
                             <tr>
-                                <th scope="row">{{s.user_name}}</th>
-                                <th scope="row">{{s.name}}</th>
-                                <th scope="row">{{s.mail}}</th>
+                                <th style="color: rgb(255,255,255);font-family: Roboto, sans-serif;font-size: 25px;">Usuario</th>
+                                <th style="color: rgb(255,255,255);font-family: Roboto, sans-serif;font-size: 25px;">Nombre Completo</th>
+                                <th style="color: rgb(255,255,255);font-family: Roboto, sans-serif;font-size: 25px;">Correo Electrónico</th>
                                 {% if profiles.group_id == 1 %}
-                                    <th scope="row">
-                                        {% if s.id != request.user.id %}
-                                            <a href="{% url 'edit_user' s.id %}">
-                                                Edita Usuario
-                                            </a>
-                                            {% if s.id != request.user.id %}
-                                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                                <a href="{% url 'user_block' s.id  %}" data-toggle="modal" data-target="#userBlock" data-u_id="{{s.id}}" data-u_name="{{s.name}}"  data-page="{{page}}">
-                                                    Bloquea Usuario
-                                                </a>
-                                            {% endif %}
-                                        {% endif %}
-                                    </th>   
-                                {% endif %}                            
+                                <th style="color: rgb(255,255,255);font-family: Roboto, sans-serif;font-size: 25px;">Funciones</th>
+                                {% endif %}
                             </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody style="background: #131125;">
+                            {% for s in user_list %}
+                            <tr>
+                                <td style="color: rgb(255,255,255);font-family: Roboto, sans-serif;font-weight: bold;">{{s.user_name}}</td>
+                                <td style="color: rgb(255,255,255);font-family: Roboto, sans-serif;font-weight: bold;">{{s.name}}</td>
+                                <td style="color: rgb(255,255,255);font-family: Roboto, sans-serif;font-weight: bold;">{{s.mail}}</td>
+                                {% if profiles.group_id == 1 %}
+                                        <td style="color: rgb(255,255,255);font-family: Roboto, sans-serif;font-weight: bold;">
+                                            {% if s.id != request.user.id %}
+                                                <a href="{% url 'edit_user' s.id %}">
+                                                    Edita Usuario
+                                                </a>
+                                                {% if s.id != request.user.id %}
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                                    <a href="{% url 'user_block' s.id  %}" data-toggle="modal" data-target="#userBlock" data-u_id="{{s.id}}" data-u_name="{{s.name}}"  data-page="{{page}}">
+                                                        Bloquea Usuario
+                                                    </a>
+                                                {% endif %}
+                                            {% endif %}
+                                                </td>   
+                                    {% endif %}    
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+ </div>
+
                 <!-- Paginación -->
                     {% if paginator.num_pages > 1 %}
                         <nav aria-label="Page navigation">
@@ -96,5 +98,5 @@
                 <!-- Paginación -->                    
             </div>
         </div>
-    </main>
+
 {% endblock %}

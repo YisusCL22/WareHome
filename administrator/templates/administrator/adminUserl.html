@@ -1,10 +1,12 @@
 {% extends 'administrador_base.html' %}
+{% block title %}Admin- Perfil{% endblock %}
+{% block email%}
+<li class="nav-item"><a class="nav-link active" href="#" style="color: rgba(255,255,255,0.9);font-family: Roboto, sans-serif;font-weight: bold;">{{request.user.email}}</a></li>
+{%endblock%}
+
 {% block contenido %}
 {% load static %}
-{% block content %}
-{% block extrahead %}
 
-{% endblock %}
 
     <section>
         <div class="container-fluid">
@@ -19,6 +21,11 @@
                                 <li>&nbsp;<a href="#" style="text-decoration: none;color: #ffffff;font-family: Roboto, sans-serif;font-weight: bold;width: 224px;">Activos</a></li>
                                 <li style="width: auto;">&nbsp;<a href="#" style="text-decoration: none;color: #ffffff;font-family: Roboto, sans-serif;font-weight: bold;width: 224px;">Bloqueados</a></li>
                             </ul>
+                            {% for g in groups %}
+                            <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="border-style: none;border-radius: 10px;background: #004D40;font-weight: bold;margin-top: 11px;">
+                              <a href="{% url 'list_main' g.id %}" class="nav-link active" aria-current="page" style="background: rgba(13,110,253,0);font-family: Roboto, sans-serif;font-weight: bold;"><i class="fas fa-user" style="margin-right: 4px;"></i>{{g.name}}</a>
+                            </button></div>
+                    {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -31,18 +38,18 @@
                             <form>
                                 <div class="row">
                                     <div class="col">
-                                        <div class="mb-3"><label class="form-label" for="username" style="font-family: Roboto, sans-serif;color: rgb(255,255,255);"><strong>Usuario</strong></label><input class="form-control" type="email" id="email-2" name="email" placeholder="Correo Electrónico" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
+                                        <div class="mb-3"><label class="form-label" for="username" style="font-family: Roboto, sans-serif;color: rgb(255,255,255);"><strong>Usuario</strong></label><input class="form-control" value="{{request.user.username}}" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
                                     </div>
                                     <div class="col">
-                                        <div class="mb-3"><label class="form-label" for="email" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>Correo Electrónico</strong></label><input class="form-control" type="email" id="email-1" name="email" placeholder="Correo Electrónico" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
+                                        <div class="mb-3"><label class="form-label" for="email" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>Correo Electrónico</strong></label><input class="form-control" value="{{request.user.email}}" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <div class="mb-3"><label class="form-label" for="first_name" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>Nombres</strong></label><input class="form-control" type="email" id="email-3" name="email" placeholder="Correo Electrónico" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
+                                        <div class="mb-3"><label class="form-label" for="first_name" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>Nombres</strong></label><input class="form-control" value="{{request.user.first_name}}" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
                                     </div>
                                     <div class="col">
-                                        <div class="mb-3"><label class="form-label" for="last_name" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>Apellidos</strong></label><input class="form-control" type="email" id="email-4" name="email" placeholder="Correo Electrónico" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
+                                        <div class="mb-3"><label class="form-label" for="last_name" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>Apellidos</strong></label><input class="form-control" value="{{request.user.last_name}}" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
                                     </div>
                                 </div>
                                 <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="border-style: none;border-radius: 10px;background: #004D40;font-weight: bold;margin-top: 11px;">Ingresar</button></div>
@@ -73,5 +80,3 @@
         </div>
     </section>
 {% endblock %}
-{% endblock %}
-    

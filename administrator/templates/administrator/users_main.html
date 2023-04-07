@@ -1,29 +1,37 @@
-{% load static %}
-{% block content %}
-{% block extrahead %}
+{% extends 'administrador_base.html' %}
+{% block title %}Admin-Panel de Usuarios{% endblock %}
+{% block email%}
+<li class="nav-item"><a class="nav-link active" href="#" style="color: rgba(255,255,255,0.9);font-family: Roboto, sans-serif;font-weight: bold;">{{request.user.email}}</a></li>
+{%endblock%}
 
-{% endblock %}
-    
-    <main role="main">
-        <div class="container col-12 mt-3">
-            <div class="col-12  mt-3 border">
-                <h3>Gestión De Usuarios </h3> 
-                <div class="row mt-4 mb-4">
-                    {% if profiles.group_id == 1%}
-                        <div class="col-12 col-sm-3 mb-3">
-                            <a href="{% url 'new_user' %}" class="btn btn-danger form-control">Nuevo Usuario</a>
+{% block contenido %}
+{% load static %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md" style="width: 628px;">
+                <div class="card" style="background: #070612;">
+                    <div class="card-header">
+                        <p style="color: rgb(255,255,255);font-family: Roboto, sans-serif;font-weight: bold;margin-bottom: 0px;">Panel de Administración de Usuarios</p>
+                    </div>
+                    <div class="card-body" style="background: #0d0b1b;">
+                        <div class="col-md-6">
+                            <div class="d-flex justify-content-start">
+                                {% if profiles.group_id == 1%}
+                                    <a class="btn btn-primary ms-md-2" role="button" href="{% url 'new_user' %}" style="background: #004D40;border-style: none;border-radius: 10px;font-family: Roboto, sans-serif;font-weight: bold;">Nuevos Usuarios</a>
+                                {% endif %}
+                                {% for g in groups %}
+                                    <a class="btn btn-primary ms-md-2" role="button" href="{% url 'list_main' g.id %}" style="background: #004D40;border-style: none;border-radius: 10px;font-family: Roboto, sans-serif;font-weight: bold;">{{g.name}}</a>
+                                {% endfor %}
+                            </div>
                         </div>
-                    {% endif %}
-                    {% for g in groups %}
-                        <div class="col-12 col-sm-3 mb-3">
-                            <a href="{% url 'list_main' g.id %}" class="btn btn-danger form-control">{{g.name}}</a>
-                        </div>
-                    {% endfor %}
-                    <div class="col-12 col-sm-3 mb-3">
-                        <a href="{% url 'admin_main' %}" class="btn btn-danger form-control">Volver</a>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+
+
 {% endblock %}
+
+        

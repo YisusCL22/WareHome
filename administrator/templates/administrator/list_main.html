@@ -1,23 +1,29 @@
+{% extends 'administrador_base.html' %}
+{% block title %}Admin-Listados{% endblock %}
+{% block email%}
+<li class="nav-item"><a class="nav-link active" href="#" style="color: rgba(255,255,255,0.9);font-family: Roboto, sans-serif;font-weight: bold;">{{request.user.email}}</a></li>
+{%endblock%}
+
+{% block contenido %}
 {% load static %}
-{% block content %}
-{% block extrahead %}
-{% endblock %}
-    <main role="main">
-        <div class="container col-12 mt-3">
-            <div class="col-12  mt-3 border">
-                <h3>Listado Perfil {{group.name}} </h3> 
-                <div class="row mt-4 mb-4">
-                    <div class="col-12 col-sm-3 mb-3">
-                        <a href="{% url 'list_user_active' group.id %}" class="btn btn-danger form-control">Activos</a>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md" style="width: 628px;">
+                <div class="card" style="background: #070612;">
+                    <div class="card-header">
+                        <p style="color: rgb(255,255,255);font-family: Roboto, sans-serif;font-weight: bold;margin-bottom: 0px;">Listado Perfil {{group.name}}</p>
                     </div>
-                    <div class="col-12 col-sm-3 mb-3">
-                        <a href="{% url 'list_user_block' group.id %}" class="btn btn-danger form-control">Bloqueados</a>
-                    </div>
-                    <div class="col-12 col-sm-3 mb-3">
-                        <a href="{% url 'users_main' %}" class="btn btn-danger form-control">Volver</a>
+                    <div class="card-body" style="background: #0d0b1b;">
+                        <div class="col-md-6">
+                            <div class="d-flex justify-content-start">
+                                    <a class="btn btn-primary ms-md-2" role="button" href="{% url 'list_user_active' group.id %}" style="background: #004D40;border-style: none;border-radius: 10px;font-family: Roboto, sans-serif;font-weight: bold;">Activos</a>
+                                    <a class="btn btn-primary ms-md-2" role="button" href="{% url 'list_user_block' group.id %}" style="background: #004D40;border-style: none;border-radius: 10px;font-family: Roboto, sans-serif;font-weight: bold;">Bloqueados</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 {% endblock %}

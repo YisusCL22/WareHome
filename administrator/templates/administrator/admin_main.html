@@ -1,10 +1,14 @@
 {% extends 'administrador_base.html' %}
+
+
+
+{% block title %}Admin-Inicio{% endblock %}
+{% block email%}
+<li class="nav-item"><a class="nav-link active" href="#" style="color: rgba(255,255,255,0.9);font-family: Roboto, sans-serif;font-weight: bold;">{{request.user.email}}</a></li>
+{%endblock%}
+
 {% block contenido %}
 {% load static %}
-{% block content %}
-{% block extrahead %}
-
-{% endblock %}
 <div class="bg-dark border rounded border-0 border-dark overflow-hidden" style="height: 250px;">
     <div class="row row g-0">
         <div class="col col-md-6" style="background: #070612;">
@@ -17,20 +21,4 @@
         <div class="col col-md-6 d-xl-flex order-first order-md-last justify-content-xl-center align-items-xl-center" style="min-height: 250px;background: #070612;"><img class="w-90 h-90 fit-cover" src="{% static '/frontend/Images/Logo.png'%}" style="background: url(&quot;assets/img/Logo.png&quot;) center / cover no-repeat, #070612;width: 400;"></div>
     </div>
 </div>
-    <main role="main">
-        <div class="container col-12 mt-3">
-            <div class="col-12  mt-3 border">
-                <h3>Bienvenido {{request.user.first_name}} {{request.user.last_name}} </h3> 
-                <div class="row mt-4 mb-4">
-                    <div class="col-12 col-sm-3 mb-3">
-                        <a href="{% url 'users_main' %}" class="btn btn-danger form-control">Gestión Usuarios</a>               
-                    </div>                   
-                    <div class="col-12 col-sm-3 mb-3">
-                        <a href=""class="btn btn-danger form-control">Gestión Ejemplos</a>               
-                    </div>                                       
-                </div>
-            </div>
-        </div>
-    </main>
-{% endblock %}
 {% endblock %}
