@@ -39,14 +39,14 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
 ]
 EXTERNAL_APPS = [
-    #'rest_framework',
+    'rest_framework',
 ]
 
 SITES_APPS = [
     'frontend',
     'registration',
     'administrator',
- 
+    'productos',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + EXTERNAL_APPS + SITES_APPS
@@ -88,9 +88,9 @@ WSGI_APPLICATION = 'warehome.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'wareHome',
-        'USER': 'homeUser',
-        'PASSWORD': 'homie245=',
+        'NAME': 'WareHome',
+        'USER': 'postgres',
+        'PASSWORD': 'jexu1324@',
         'HOST': 'localhost',
         'OPTIONS': {
             'options': '-c timezone=UTC',
@@ -143,3 +143,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'frontend', 'static', 'frontend')
 
 LOGIN_REDIRECT_URL = 'check_profile'
 LOGOUT_REDIRECT_URL = 'login'
+
+#Configuracion de framework para conexion rest
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSIONS_CLASSES':[
+        'rest_framework.permissions.isAuthenticated'
+    ]
+}

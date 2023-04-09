@@ -1,0 +1,41 @@
+{% load static %}
+{% extends "administrador_base.html" %}
+
+<head>
+  <link  href="{% static '/productos/crear_local.css'%}" rel="stylesheet">
+</head>
+
+
+
+
+{% block content %}
+  <h1>Crear nuevo local</h1>
+  <form method="post">
+    {% csrf_token %}
+    <div>
+      <label for="id_id_local">ID Local:</label>
+      {{ form.id_local }}
+    </div>
+    <div>
+      <label for="id_nombre_local">Nombre Local:</label>
+      {{ form.nombre_local }}
+    </div>
+    <div>
+      <label for="id_telefono">Teléfono:</label>
+      {{ form.telefono }}
+    </div>
+    <div>
+      <label for="id_direccion">Dirección:</label>
+      {{ form.direccion }}
+    </div>
+    <div>
+      <label for="id_encargado">Encargado:</label>
+      {{ form.encargado }}
+    </div>
+    <div>
+      <label for="id_num_bodegas">Número de Bodegas:</label>
+      {{ form.num_bodegas }}
+    </div>
+    <button type="submit">Guardar</button>
+  </form>
+{% endblock %}
