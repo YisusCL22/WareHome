@@ -1,18 +1,313 @@
+{% extends 'registro_base.html' %}
+
 {% load static %}
-{% block title %}Registro{% endblock %}
-{% block content %}
-    <style>.errorlist{color:red;}label{display:none}</style>
-    <main role="main">
-        <div class="container">
-            <div class="row mt-3">
-            <div class="col-md-9 mx-auto mb-5">
-                <form action="" method="post">{% csrf_token %}
-                    <h3 class="mb-4">Registro</h3>
-                    {{form.as_p}}
-                    <p><input type="submit" class="btn btn-primary btn-block" value="Confirmar"></p>
-                </form>
+{% block title %}WareHome - Registro{% endblock %}
+{% block contenido %}
+<!--///////////////////////////////////////////////Parte 1////////////////////////////////////////////////-->
+<div  id="registro1" >
+<div  class="card d-lg-flex justify-content-lg-center align-items-lg-center" style="width: 860px;height: auto;border-radius: 10px;display: flex;overflow: auto;position: relative;border-style: none;background: #070612;box-shadow: 0px 4px 4px rgba(0,0,0,0.5);">
+    <div class="card-body d-lg-flex d-xxl-flex justify-content-lg-start align-items-lg-center justify-content-xxl-center align-items-xxl-center" style="background: #070612;padding: 0px;">
+        <div style="width: auto;height: auto;"><img class="d-lg-flex justify-content-lg-start" src="{% static '/frontend/Images/Card.png'%}"  style="width: auto;height: auto;margin-right: 25px;"></div>
+        <div class="justify-content-center" style="width: auto;height: auto;padding: 5px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Paso 1 de 3: Datos Personales.</p>
+                    </div>
+                </div>
             </div>
+            <h1 class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center" style="font-weight: bold;">Registro</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>*Campo Obligatorio.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="d-lg-flex justify-content-lg-start" style="height: 1px;width: auto;background: #ffffff;"></div>
+            <div class="container" style="margin-top: 12px;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group input-group" style="width: 235px;border-style: none;">
+                            <button class="btn btn-primary btn btn-primary py-0" type="button" style="background: #004D40;border-style: none;border-radius: 10px;"><i class="fa fa-user fas fa-search"></i></button><input class="form-control" type="text" id="nombre" name="nombre" onkeyup="updateNombre" placeholder="Nombre*" style="border-radius: 20px;border-style: none;background: #131125;border-top-left-radius: 0px;border-bottom-left-radius: 0px;" ></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group input-group" style="width: 235px;border-style: none;">
+                            <button class="btn btn-primary btn btn-primary py-0" type="button" style="background: #004D40;border-style: none;border-radius: 10px;"><i class="fa fa-sort-numeric-asc fas fa-search"></i></button><input class="form-control" type="text" id="rut" name="rut" onkeyup="updateRut" placeholder="R.U.T." style="border-radius: 20px;border-style: none;background: #131125;border-top-left-radius: 0px;border-bottom-left-radius: 0px;" ></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="margin-top: 12px;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group input-group" style="width: 235px;border-style: none;"><button class="btn btn-primary btn btn-primary py-0" type="button" style="background: #004D40;border-style: none;border-radius: 10px;"><i class="fa fa-user fas fa-search"></i></button><input class="form-control" type="text" id="materno" name="materno" onkeyup="updateMaterno" placeholder="Apellido Materno*" style="border-radius: 20px;border-style: none;background: #131125;border-top-left-radius: 0px;border-bottom-left-radius: 0px;" ></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group input-group" style="width: 235px;border-style: none;"><button class="btn btn-primary btn btn-primary py-0" type="button" style="background: #004D40;border-style: none;border-radius: 10px;"><i class="fa fa-phone fas fa-search"></i></button><input class="form-control" type="tel" id="telefono" name="telefono" onkeyup="updateTelefono" placeholder="Teléfono" style="border-radius: 20px;border-style: none;background: #131125;border-top-left-radius: 0px;border-bottom-left-radius: 0px;" ></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="margin-top: 12px;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group input-group" style="width: 235px;border-style: none;"><button class="btn btn-primary btn btn-primary py-0" type="button" style="background: #004D40;border-style: none;border-radius: 10px;"><i class="fa fa-user fas fa-search"></i></button><input class="form-control" type="text" id="paterno" name="paterno" onkeyup="updatePaterno" placeholder="Apellido Paterno*" style="border-radius: 20px;border-style: none;background: #131125;border-top-left-radius: 0px;border-bottom-left-radius: 0px;" ></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group input-group" style="width: 235px;border-style: none;"><button class="btn btn-primary btn btn-primary py-0" type="button" style="background: #004D40;border-style: none;border-radius: 10px;"><i class="fa fa-calendar-o fas fa-search"></i></button><input class="form-control" type="date" id="fecha" name="fecha" onkeyup="updateFecha" placeholder="Fecha de Nacimiento" style="border-radius: 20px;border-style: none;background: #131125;border-top-left-radius: 0px;border-bottom-left-radius: 0px;" ></div>
+                    </div>
+                </div>
+            </div>
+            <div style="height: 1px;width: auto;background: #ffffff;margin-top: 12px;"></div><a class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center" href="#" style="text-align: center;font-family: Roboto, sans-serif;font-weight: bold;color: #00E1BB;margin-bottom: 1px;padding-top: 0px;padding-right: 0px;margin-left: 0px;margin-top: 12px;">¿Ya tienes una cuenta creada?</a>
+            <div class="container" style="margin-top: 12px;">
+                <div class="row">
+                    <div class="col-md-12 d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center">
+                        <a class="btn btn-primary ms-md-2 custom-button" onclick="continuar()" role="button" href="#" style="background: #004d40;font-family: Roboto, sans-serif;font-weight: bold;font-size: 20px;border-style: none;">Continuar</a>
+                    </div>
+                </div>
             </div>
         </div>
-    </main>
+    </div>
+</div>
+</div>
+<!--///////////////////////////////////////////////Parte 2////////////////////////////////////////////////-->
+<div id="registro2" style="display: none">
+<div  class="card d-lg-flex justify-content-lg-center align-items-lg-center" style="width: 860px;height: auto;border-radius: 10px;display: flex;overflow: auto;position: relative;border-style: none;background: #070612;margin-top: 30px;box-shadow: 0px 4px 4px rgba(0,0,0,0.5);">
+    <div class="card-body d-lg-flex d-xxl-flex justify-content-lg-start align-items-lg-center justify-content-xxl-center align-items-xxl-center" style="background: #070612;padding: 0px;">
+        <div class="justify-content-center" style="width: auto;height: auto;padding: 5px;margin-left: 10px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Paso 2 de 3: Residencia.</p>
+                    </div>
+                </div>
+            </div>
+            <h1 class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center" style="font-weight: bold;">Registro</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>*Campo Obligatorio.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="d-lg-flex justify-content-lg-start" style="height: 1px;width: auto;background: #ffffff;"></div>
+            <div class="container" style="margin-top: 12px;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group input-group" style="width: 235px;border-style: none;"><button class="btn btn-primary btn btn-primary py-0" type="button" style="background: #004D40;border-style: none;border-radius: 10px;"><i class="fa fa-map-marker fas fa-search"></i></button><input class="form-control" type="text" id="calle" name="calle" onkeyup="updateCalle" placeholder="Calle/Avenida*" style="border-radius: 20px;border-style: none;background: #131125;border-top-left-radius: 0px;border-bottom-left-radius: 0px;" ></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group input-group" style="width: 235px;border-style: none;"><button class="btn btn-primary btn btn-primary py-0" type="button" style="background: #004D40;border-style: none;border-radius: 10px;"><i class="fa fa-map-signs fas fa-search"></i></button><input class="form-control" type="text" id="comuna" name="comuna" onkeyup="updateComuna" placeholder="Comuna*" style="border-radius: 20px;border-style: none;background: #131125;border-top-left-radius: 0px;border-bottom-left-radius: 0px;" ></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="margin-top: 12px;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group input-group" style="width: 235px;border-style: none;"><button class="btn btn-primary btn btn-primary py-0" type="button" style="background: #004D40;border-style: none;border-radius: 10px;"><i class="fa fa-asterisk fas fa-search"></i></button><input class="form-control" type="number" id="numero" name="numero" onkeyup="updateNumero" placeholder="Número*" style="border-radius: 20px;border-style: none;background: #131125;border-top-left-radius: 0px;border-bottom-left-radius: 0px;" ></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group input-group" style="width: 235px;border-style: none;"><button class="btn btn-primary btn btn-primary py-0" type="button" style="background: #004D40;border-style: none;border-radius: 10px;"><i class="fa fa-map-pin fas fa-search"></i></button><input class="form-control" type="region" id="region" name="region" onkeyup="updateRegion" placeholder="Región*" style="border-radius: 20px;border-style: none;background: #131125;border-top-left-radius: 0px;border-bottom-left-radius: 0px;" ></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="margin-top: 12px;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group input-group" style="width: 235px;border-style: none;"><button class="btn btn-primary btn btn-primary py-0" type="button" style="background: #004D40;border-style: none;border-radius: 10px;"><i class="fa fa-asterisk fas fa-search"></i></button><input class="form-control" type="number" id="postal" name="postal" onkeyup="updatePostal" placeholder="Código Postal*" style="border-radius: 20px;border-style: none;background: #131125;border-top-left-radius: 0px;border-bottom-left-radius: 0px;" ></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group input-group" style="width: 235px;border-style: none;"><button class="btn btn-primary btn btn-primary py-0" type="button" style="background: #004D40;border-style: none;border-radius: 10px;"><i class="fa fa-map fas fa-search"></i></button><input class="form-control" type="text" id="pais" name="pais" placeholder="País*" onkeyup="updatePais" style="border-radius: 20px;border-style: none;background: #131125;border-top-left-radius: 0px;border-bottom-left-radius: 0px;" ></div>
+                    </div>
+                </div>
+            </div>
+            <div style="height: 1px;width: auto;background: #ffffff;margin-top: 12px;"></div><a class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center" href="#" style="text-align: center;font-family: Roboto, sans-serif;font-weight: bold;color: #00E1BB;margin-bottom: 1px;padding-top: 0px;padding-right: 0px;margin-left: 0px;margin-top: 12px;">¿Ya tienes una cuenta creada?</a>
+            <div class="container" style="margin-top: 12px;">
+                <div class="row">
+                    <div class="col-md-6 d-xl-flex justify-content-xl-end"><a class="btn btn-primary ms-md-2 custom-button" onclick="volver()" role="button" href="#" style="background: #004d40;font-family: Roboto, sans-serif;font-weight: bold;font-size: 20px;border-style: none;">Volver</a></div>
+                    <div class="col-md-6 d-xl-flex justify-content-xl-start" style="padding-left: 0px;padding-right: 0px;"><a class="btn btn-primary ms-md-2 custom-button" onclick="continuar2()" role="button" href="#" style="background: #004d40;font-family: Roboto, sans-serif;font-weight: bold;font-size: 20px;border-style: none;">Continuar</a></div>
+                </div>
+            </div>
+        </div>
+        <div style="width: auto;height: auto;"><img class="d-lg-flex justify-content-lg-start" src="{% static '/frontend/Images/Card.png'%}" style="width: auto;height: auto;border-top-right-radius: 10px;border-bottom-right-radius: 10px;"></div>
+    </div>
+</div>
+</div>
+<!--///////////////////////////////////////////////Parte 3////////////////////////////////////////////////-->
+<div  id="registro3" style="display: none">
+<div class="card d-lg-flex justify-content-lg-center align-items-lg-center" style="width: 860px;height: auto;border-radius: 10px;display: flex;overflow: auto;position: relative;border-style: none;background: #070612;margin-top: 30px;box-shadow: 0px 4px 4px rgba(0,0,0,0.5);">
+    <div class="card-body d-lg-flex d-xxl-flex justify-content-lg-start align-items-lg-center justify-content-xxl-center align-items-xxl-center" style="background: #070612;padding: 0px;">
+        <div style="width: auto;height: auto;"><img class="d-lg-flex justify-content-lg-start" src="{% static '/frontend/Images/Card.png'%}" style="width: auto;height: auto;margin-right: 25px;"></div>
+        <div class="justify-content-center" style="width: auto;height: auto;padding: 5px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Paso 3 de 3: Datos de Usuario.</p>
+                    </div>
+                </div>
+            </div>
+            <h1 class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center" style="font-weight: bold;">Registro</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>*Campo Obligatorio.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="d-lg-flex justify-content-lg-start" style="height: 1px;width: auto;background: #ffffff;"></div>
+            <div class="container d-lg-flex justify-content-lg-center" style="margin-top: 12px;">
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <input type="hidden" name="nombre2">
+                    <input type="hidden" name="materno2">
+                    <input type="hidden" name="paterno2">
+                    <input type="hidden" name="rut2">
+                    <input type="hidden" name="telefono2">
+                    <input type="hidden" name="fecha2">
+                    <input type="hidden" name="calle2">
+                    <input type="hidden" name="comuna2">
+                    <input type="hidden" name="numero2">
+                    <input type="hidden" name="postal2">
+                    <input type="hidden" name="region2">
+                    <input type="hidden" name="pais2">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="input-group input-group" style="width: 235px;border-style: none;"><button class="btn btn-primary btn btn-primary py-0" type="button" style="background: #004D40;border-style: none;border-radius: 10px;"><i class="fa fa-user-circle fas fa-search"></i></button><input class="form-control" type="text" id="usuario" name="usuario" placeholder="Nombre de Usuario*" style="border-radius: 20px;border-style: none;background: #131125;border-top-left-radius: 0px;border-bottom-left-radius: 0px;" ></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="margin-top: 12px;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group input-group" style="width: 235px;border-style: none;"><button class="btn btn-primary btn btn-primary py-0" type="button" style="background: #004D40;border-style: none;border-radius: 10px;"><i class="fa fa-envelope fas fa-search"></i></button><input class="form-control" type="email" id="email" name="email" placeholder="Correo Electrónico*" style="border-radius: 20px;border-style: none;background: #131125;border-top-left-radius: 0px;border-bottom-left-radius: 0px;" ></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group input-group" style="width: 235px;border-style: none;"><button class="btn btn-primary btn btn-primary py-0" type="button" style="background: #004D40;border-style: none;border-radius: 10px;"><i class="fa fa-lock fas fa-search"></i></button><input class="form-control" type="password" id="password" name="password" placeholder="Contraseña*" style="border-radius: 20px;border-style: none;background: #131125;border-top-left-radius: 0px;border-bottom-left-radius: 0px;" ></div>
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="margin-top: 12px;">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group input-group" style="width: 235px;border-style: none;"><button class="btn btn-primary btn btn-primary py-0" type="button" style="background: #004D40;border-style: none;border-radius: 10px;"><i class="fa fa-envelope fas fa-search"></i></button><input class="form-control" type="email" id="email2" name="email2" placeholder="Confirmar Correo*" style="border-radius: 20px;border-style: none;background: #131125;border-top-left-radius: 0px;border-bottom-left-radius: 0px;"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group input-group" style="width: 235px;border-style: none;"><button class="btn btn-primary btn btn-primary py-0" type="button" style="background: #004D40;border-style: none;border-radius: 10px;"><i class="fa fa-lock fas fa-search"></i></button><input class="form-control" type="password" id="password2" name="password2" placeholder="Confirmar Contraseña" style="border-radius: 20px;border-style: none;background: #131125;border-top-left-radius: 0px;border-bottom-left-radius: 0px;" ></div>
+                    </div>
+                </div>
+            </div>
+            <div style="height: 1px;width: auto;background: #ffffff;margin-top: 12px;"></div><a class="d-lg-flex d-xxl-flex justify-content-lg-center justify-content-xxl-center" href="#" style="text-align: center;font-family: Roboto, sans-serif;font-weight: bold;color: #00E1BB;margin-bottom: 1px;padding-top: 0px;padding-right: 0px;margin-left: 0px;margin-top: 12px;">¿Ya tienes una cuenta creada?</a>
+            <div class="container" style="margin-top: 12px;">
+                <div class="row">
+                    <div class="col-md-6 d-lg-flex d-xl-flex justify-content-lg-end justify-content-xl-end"><a class="btn btn-primary ms-md-2 custom-button" onclick="volver2()" role="button" href="#" style="background: #004d40;font-family: Roboto, sans-serif;font-weight: bold;font-size: 20px;border-style: none;">Volver</a></div>
+                    <div class="col-md-6 d-xl-flex justify-content-xl-start" style="padding-left: 0px;padding-right: 0px;"><button class="btn btn-primary ms-md-2 custom-button" type="submit" href="#" style="background: #004d40;font-family: Roboto, sans-serif;font-weight: bold;font-size: 20px;border-style: none;">Finalizar</button></div>
+                </div>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+</div>
+<script>
+function continuar() {
+    document.getElementById("registro1").style.display = "none";
+    document.getElementById("registro2").style.display = "block";
+  }
+function continuar2() {
+    document.getElementById("registro2").style.display = "none";
+    document.getElementById("registro3").style.display = "block";
+  }
+function volver() {
+    document.getElementById("registro2").style.display = "none";
+    document.getElementById("registro1").style.display = "block";
+  }
+function volver2() {
+    document.getElementById("registro3").style.display = "none";
+    document.getElementById("registro2").style.display = "block";
+  }
+
+function updateNombre() {
+    // Obtener el valor del primer input
+    var input1Value = document.getElementByName("nombre").value;
+    
+    // Actualizar el valor del input del formulario
+    document.getElementById("nombre2").value = input1Value;
+  }
+function updateRut() {
+    // Obtener el valor del primer input
+    var input1Value = document.getElementByName("rut").value;
+    
+    // Actualizar el valor del input del formulario
+    document.getElementById("rut2").value = input1Value;
+  }
+  function updateMaterno() {
+    // Obtener el valor del primer input
+    var input1Value = document.getElementByName("materno").value;
+    
+    // Actualizar el valor del input del formulario
+    document.getElementById("materno2").value = input1Value;
+  }
+  function updatePaterno() {
+    // Obtener el valor del primer input
+    var input1Value = document.getElementByName("paterno").value;
+    
+    // Actualizar el valor del input del formulario
+    document.getElementById("paterno2").value = input1Value;
+  }
+  function updateTelefono() {
+    // Obtener el valor del primer input
+    var input1Value = document.getElementByName("telefono").value;
+    
+    // Actualizar el valor del input del formulario
+    document.getElementById("telefono2").value = input1Value;
+  }
+  function updateFecha() {
+    // Obtener el valor del primer input
+    var input1Value = document.getElementByName("fecha").value;
+    
+    // Actualizar el valor del input del formulario
+    document.getElementById("fecha2").value = input1Value;
+  }
+  function updateCalle() {
+    // Obtener el valor del primer input
+    var input1Value = document.getElementByName("calle").value;
+    
+    // Actualizar el valor del input del formulario
+    document.getElementById("calle2").value = input1Value;
+  }
+  function updateComuna() {
+    // Obtener el valor del primer input
+    var input1Value = document.getElementByName("comuna").value;
+    
+    // Actualizar el valor del input del formulario
+    document.getElementById("comuna2").value = input1Value;
+  }
+  function updateNumero() {
+    // Obtener el valor del primer input
+    var input1Value = document.getElementByName("numero").value;
+    
+    // Actualizar el valor del input del formulario
+    document.getElementById("numero2").value = input1Value;
+  }
+  function updateRegion() {
+    // Obtener el valor del primer input
+    var input1Value = document.getElementByName("region").value;
+    
+    // Actualizar el valor del input del formulario
+    document.getElementById("region2").value = input1Value;
+  }
+  function updatePais() {
+    // Obtener el valor del primer input
+    var input1Value = document.getElementByName("pais").value;
+    
+    // Actualizar el valor del input del formulario
+    document.getElementById("pais2").value = input1Value;
+  }
+  function updatePostal() {
+    // Obtener el valor del primer input
+    var input1Value = document.getElementsByName("postal").value;
+    
+    // Actualizar el valor del input del formulario
+    document.getElementById("postal2").value = input1Value;
+  }
+</script>
 {% endblock %}

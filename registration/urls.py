@@ -3,4 +3,11 @@ from .views import SignUpView, ProfileUpdate, EmailUpdate
 from django.contrib import admin
 from registration import views
 
-urlpatterns = []
+
+urlpatterns = [
+    path('signup/', views.CustomSignUp, name="signup"),
+    path('profile/', ProfileUpdate.as_view(), name="profile"),  
+    path('profile/email/', EmailUpdate.as_view(), name="profile_email"),       
+    path('profile_edit/', views.profile_edit, name='profile_edit'), 
+    
+]

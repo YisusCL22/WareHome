@@ -1,4 +1,5 @@
 from .forms import UserCreationFormWithEmail, EmailForm
+from django.http import HttpRequest
 from django.views.generic import CreateView
 from django.views.generic.edit import UpdateView
 from django.contrib.auth.models import User, Group
@@ -11,6 +12,47 @@ from django import forms
 from .models import Profile
 
 # Create your views here.
+def CustomSignUp(request):
+    template_name = 'registration/signup.html'
+    success_url = reverse_lazy('Login')
+
+    if request.method == 'POST':
+            grupo = 1
+            rut = request.POST.get('rut2')
+            usuario = request.POST.get('usuario')
+            first_name = request.POST.get('nombre2')
+            last_name = request.POST.get('paterno2')
+            email = request.POST.get('email2')
+            password = request.POST.get('password2')
+
+
+            rut_exist = User.objects.filter(username=usuario).count()
+            mail_exist = User.objects.filter(email=email).count()
+            if rut_exist == 0:
+                if mail_exist == 0:
+                  user = User.objects.create_user(
+                    username= usuario,
+                    email=email,
+                    password=password,
+                    first_name=first_name,
+                    last_name=last_name,
+                    )
+                  profile_save = Profile(
+                    user_id = user.id,
+                    group_id = grupo,
+                    first_session = 'No',
+                    token_app_session = 'No',
+                   )
+                  profile_save.save()
+                  print('Usuario creado con exito') 
+                  
+                  return redirect(success_url)                            
+                else:
+                 messages.add_message(request, messages.INFO, 'El correo que esta tratando de ingresar, ya existe en nuestros registros')                             
+            else:
+             messages.add_message(request, messages.INFO, 'El rut que esta tratando de ingresar, ya existe en nuestros registros')   
+    return render(request,template_name,{'groups':1})
+
 class SignUpView(CreateView):
     form_class = UserCreationFormWithEmail
     template_name = 'registration/signup.html'

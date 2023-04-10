@@ -1,0 +1,31 @@
+grupo = request.POST.get('grupo')
+        rut = request.POST.get('rut')
+        first_name = request.POST.get('name')
+        last_name = request.POST.get('last_name1')
+        email = request.POST.get('email')
+        mobile = request.POST.get('mobile')
+        #el metodo no contempla validacioens deberá realizarlas
+        rut_exist = User.objects.filter(username=rut).count()
+        mail_exist = User.objects.filter(email=email).count()
+        if rut_exist == 0:
+            if mail_exist == 0:
+                user = User.objects.create_user(
+                    username= rut,
+                    email=email,
+                    password=rut,
+                    first_name=first_name,
+                    last_name=last_name,
+                    )
+                profile_save = Profile(
+                    user_id = user.id,
+                    group_id = grupo,
+                    first_session = 'No',
+                    token_app_session = 'No',
+                )
+                profile_save.save()
+                messages.add_message(request, messages.INFO, 'Usuario creado con exito')                             
+            else:
+                messages.add_message(request, messages.INFO, 'El correo que esta tratando de ingresar, ya existe en nuestros registros')                             
+        else:
+            messages.add_message(request, messages.INFO, 'El rut que esta tratando de ingresar, ya existe en nuestros registros') 
+        groups = Group.objects.all().exclude(pk=0).order_by('id')                        

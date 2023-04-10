@@ -56,40 +56,53 @@ def new_user(request):
     if profiles.group_id != 1:
         messages.add_message(request, messages.INFO, 'Intenta ingresar a una area para la que no tiene permisos')
         return redirect('check_group_main')
+    
     if request.method == 'POST':
-        grupo = request.POST.get('grupo')
-        rut = request.POST.get('rut')
-        first_name = request.POST.get('name')
-        last_name = request.POST.get('last_name1')
-        email = request.POST.get('email')
-        mobile = request.POST.get('mobile')
+        print(request.POST.get('opciones'))
+        if request.POST.get('opciones') == "1":
+            print(request.POST.get('opciones'))
+            #Admin
+            grupo = 1
+            rut = request.POST.get('rut')
+            usuario = request.POST.get('usuario')
+            first_name = request.POST.get('nombres')
+            last_name = request.POST.get('apellidos')
+            email = request.POST.get('email')
+            password = request.POST.get('contrasena')
+            #mobile = request.POST.get('mobile')
         #el metodo no contempla validacioens deberá realizarlas
-        rut_exist = User.objects.filter(username=rut).count()
-        mail_exist = User.objects.filter(email=email).count()
-        if rut_exist == 0:
-            if mail_exist == 0:
-                user = User.objects.create_user(
-                    username= rut,
+            rut_exist = User.objects.filter(username=usuario).count()
+            mail_exist = User.objects.filter(email=email).count()
+            if rut_exist == 0:
+                if mail_exist == 0:
+                  user = User.objects.create_user(
+                    username= usuario,
                     email=email,
-                    password=rut,
+                    password=password,
                     first_name=first_name,
                     last_name=last_name,
                     )
-                profile_save = Profile(
+                  profile_save = Profile(
                     user_id = user.id,
                     group_id = grupo,
                     first_session = 'No',
                     token_app_session = 'No',
-                )
-                profile_save.save()
-                messages.add_message(request, messages.INFO, 'Usuario creado con exito')                             
+                   )
+                  profile_save.save()
+                  print('Usuario creado con exito')                             
+                else:
+                 messages.add_message(request, messages.INFO, 'El correo que esta tratando de ingresar, ya existe en nuestros registros')                             
             else:
-                messages.add_message(request, messages.INFO, 'El correo que esta tratando de ingresar, ya existe en nuestros registros')                             
-        else:
-            messages.add_message(request, messages.INFO, 'El rut que esta tratando de ingresar, ya existe en nuestros registros')                         
-    groups = Group.objects.all().exclude(pk=0).order_by('id')
+             messages.add_message(request, messages.INFO, 'El rut que esta tratando de ingresar, ya existe en nuestros registros')   
+        if request.POST.get('opciones') == 2:
+            pass
+        if request.POST.get('opciones') == 3:
+            pass
+        
+    
+    
     template_name = 'administrator/newUser.html'
-    return render(request,template_name,{'groups':groups})
+    return render(request,template_name,{'groups':1})
 
 @login_required
 def list_main(request,group_id):

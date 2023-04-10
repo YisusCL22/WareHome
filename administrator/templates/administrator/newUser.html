@@ -53,9 +53,10 @@
                     <div class="card-body" style="background: #0d0b1b;">
                         <form action="" method="post">
                             {% csrf_token %}
+                            <input type="hidden" name="opciones" value="1">
                             <div class="row">
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for="username" style="font-family: Roboto, sans-serif;color: rgb(255,255,255);"><strong>Cargo</strong></label><input class="form-control" type="email" id="email-2" name="cargo" placeholder="Cargo" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
+                                    <div class="mb-3"><label class="form-label"  style="font-family: Roboto, sans-serif;color: rgb(255,255,255);"><strong>Cargo</strong></label><input class="form-control" type="text" id="email-2" name="cargo" placeholder="Cargo" style="border-radius: 20px;border-style: none;background: #131125;" ></div>
                                 </div>
                                 <div class="col">
                                     <div class="mb-3"><label class="form-label" for="email" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>Correo Electrónico</strong></label><input class="form-control" type="email" id="email-1" name="email" placeholder="Correo Electrónico" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}" inputmode="email"></div>
@@ -63,36 +64,36 @@
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for="first_name" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>Nombres</strong></label><input class="form-control" type="email" id="email-3" name="nombres" placeholder="Nombres" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
+                                    <div class="mb-3"><label class="form-label" for="first_name" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>Nombres</strong></label><input class="form-control" type="text" id="email-3" name="nombres" placeholder="Nombres" style="border-radius: 20px;border-style: none;background: #131125;" required="" ></div>
                                 </div>
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for="last_name" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>Apellidos</strong></label><input class="form-control" type="email" id="email-4" name="apellidos" placeholder="Apellidos" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
+                                    <div class="mb-3"><label class="form-label" for="last_name" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>Apellidos</strong></label><input class="form-control" type="text" id="email-4" name="apellidos" placeholder="Apellidos" style="border-radius: 20px;border-style: none;background: #131125;" required="" ></div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for="first_name" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>R.U.T.</strong></label><input class="form-control" type="email" id="email-8" name="rut" placeholder="RUT" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
+                                    <div class="mb-3"><label class="form-label" for="first_name" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>R.U.T.</strong></label><input class="form-control" type="text" id="email-8" name="rut" placeholder="RUT" style="border-radius: 20px;border-style: none;background: #131125;" ></div>
                                 </div>
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for="last_name" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>Celular</strong></label><input class="form-control" type="email" id="email-9" name="number" placeholder="Número Telefónico" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
+                                    <div class="mb-3"><label class="form-label" for="last_name" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>Celular</strong></label><input class="form-control" type="number" id="email-9" name="number" placeholder="Número Telefónico" style="border-radius: 20px;border-style: none;background: #131125;" ></div>
                                 </div>
                             </div>
                             <div class="mb-3"></div>
-                            <div class="mb-3"><label class="form-label" for="address" style="color: rgb(254,255,255);font-family: Roboto, sans-serif;"><strong>Dirección</strong></label><input class="form-control" type="email" id="email-5" name="dirccion" placeholder="Dirección" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
+                            <div class="mb-3"><label class="form-label" for="address" style="color: rgb(254,255,255);font-family: Roboto, sans-serif;"><strong>Dirección</strong></label><input class="form-control" type="text" id="email-5" name="dirccion" placeholder="Dirección" style="border-radius: 20px;border-style: none;background: #131125;" ></div>
                             <div class="row">
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for="city" style="color: rgb(255,255,255);font-family: Roboto, sans-serif;font-weight: bold;"><strong>Región</strong></label><input class="form-control" type="email" id="email-6" name="region" placeholder="Región" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
+                                    <div class="mb-3"><label class="form-label" for="city" style="color: rgb(255,255,255);font-family: Roboto, sans-serif;font-weight: bold;"><strong>Región</strong></label><input class="form-control" type="text" id="email-6" name="region" placeholder="Región" style="border-radius: 20px;border-style: none;background: #131125;" ></div>
                                 </div>
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for="country" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>Código Postal</strong></label><input class="form-control" type="email" id="email-7" name="email" placeholder="Código Postal" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
+                                    <div class="mb-3"><label class="form-label" for="country" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>Código Postal</strong></label><input class="form-control" type="text" id="email-7" name="code" placeholder="Código Postal" style="border-radius: 20px;border-style: none;background: #131125;" ></div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for="city" style="color: rgb(255,255,255);font-family: Roboto, sans-serif;font-weight: bold;"><strong>Usuario</strong></label><input class="form-control" type="email" id="email-10" name="usuario" placeholder="Nombre de Usuario" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
+                                    <div class="mb-3"><label class="form-label" for="city" style="color: rgb(255,255,255);font-family: Roboto, sans-serif;font-weight: bold;"><strong>Usuario</strong></label><input class="form-control" type="text" id="email-10" name="usuario" placeholder="Nombre de Usuario" style="border-radius: 20px;border-style: none;background: #131125;" ></div>
                                 </div>
                                 <div class="col">
-                                    <div class="mb-3"><label class="form-label" for="country" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>Contraseña</strong></label><input class="form-control" type="email" id="email-11" name="contrasena" placeholder="Contraseña" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
+                                    <div class="mb-3"><label class="form-label" for="country" style="font-family: Roboto, sans-serif;font-weight: bold;color: rgb(255,255,255);"><strong>Contraseña</strong></label><input class="form-control" type="password" id="email-11" name="contrasena" placeholder="Contraseña" style="border-radius: 20px;border-style: none;background: #131125;" ></div>
                                 </div>
                             </div>
                             <div class="mb-3"><button class="btn btn-primary d-block w-100" type="submit" style="border-style: none;border-radius: 10px;background: #004D40;font-weight: bold;margin-top: 11px;">Crear Administrador</button></div>
@@ -113,6 +114,7 @@
                 <div class="card-body" style="background: #0d0b1b;">
                     <form action="" method="post">
                         {% csrf_token %}
+                        <input type="hidden" name="opciones" value="2">
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3"><label class="form-label" for="username" style="font-family: Roboto, sans-serif;color: rgb(255,255,255);"><strong>Empresa</strong></label><input class="form-control" type="email" id="email-2" name="Empresa" placeholder="Cargo" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
@@ -173,6 +175,7 @@
                 <div class="card-body" style="background: #0d0b1b;">
                     <form action="" method="post">
                         {% csrf_token %}
+                        <input type="hidden" name="opciones" value="3">
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3"><label class="form-label" for="username" style="font-family: Roboto, sans-serif;color: rgb(255,255,255);"><strong>Nombres</strong></label><input class="form-control" type="email" id="email-2" name="EmpresaNombres" placeholder="Nombres" style="border-radius: 20px;border-style: none;background: #131125;" required="" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,5}"></div>
